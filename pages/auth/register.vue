@@ -1,15 +1,11 @@
 <template>
-  <div>
-    This is the register page
-  </div>
+    <div>This is the register page</div>
 </template>
 
 <script>
 export default {
-  name: 'Register'
+    name: 'Register',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
