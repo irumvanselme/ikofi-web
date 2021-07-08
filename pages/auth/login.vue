@@ -41,11 +41,15 @@ export default {
 	}),
 	methods: {
 		async logIn() {
-			const { data: response } = await this.$axios.post(
-				'/api/auth/login',
-				this.data
-			)
-			console.log(response)
+			try {
+				const { data: response } = await this.$axios.post(
+					'/api/auth/login',
+					this.data
+				)
+				console.log(response)
+			} catch (e) {
+				console.log(e.response.data)
+			}
 		},
 	},
 }
