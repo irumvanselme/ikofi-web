@@ -1,32 +1,35 @@
 <template>
-    <div class="w-1/3">
-        <h1 class="text-3xl font-bold">Log into ikofi system</h1>
-        <FormControl placeholder="Email or username or phone" />
-        <FormControl placeholder="Password" type="password" />
+    <div class="md:w-1/3">
+        <h1 class="text-3xl font-bold mb-12">Log into ikofi system</h1>
+        <div class="mt-5">
+            <FormControl
+                placeholder="Email or username or phone"
+                label="Email or username or phone"
+            />
+        </div>
+        <div class="mt-5">
+            <FormControl
+                placeholder="Password"
+                type="password"
+                label="Password"
+            />
+        </div>
+        <div class="mt-6">
+            <Button />
+        </div>
         <div>
-            <button
-                class="
-                    bg-purple-500
-                    text-white text-xl
-                    font-bold
-                    w-full
-                    mt-5
-                    py-2
-                    rounded
-                    shadow-lg
-                "
-            >
-                Log in
-            </button>
+            <Link to="/auth/login" text="Don't have an account ?" />
         </div>
     </div>
 </template>
 
 <script>
 import FormControl from '~/components/FormControl'
+import Button from '~/components/Button'
+import Link from '~/components/Link'
 export default {
     name: 'Login',
-    components: { FormControl },
+    components: { Link, Button, FormControl },
 }
 </script>
 
