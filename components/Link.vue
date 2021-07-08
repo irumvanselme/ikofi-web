@@ -20,7 +20,6 @@ export default {
 		},
 		color: {
 			type: String,
-			required: true,
 			default: 'text-purple-800',
 		},
 	},

@@ -13,6 +13,7 @@
 			focus:ring focus:ring-purple-300
 			active:bg-purple-700
 		"
+		@click="onClick"
 	>
 		{{ title }}
 	</button>
@@ -25,6 +26,11 @@ export default {
 		title: {
 			type: String,
 			required: true,
+		},
+	},
+	methods: {
+		onClick() {
+			this.$emit('click')
 		},
 	},
 }

@@ -21,6 +21,7 @@
 		>
 			<input
 				:id="input_id"
+				v-model="input_value"
 				:type="type"
 				class="
 					flex-grow
@@ -29,6 +30,7 @@
 					overflow-hidden
 				"
 				:placeholder="placeholder"
+				@input="handleInput"
 			/>
 		</div>
 	</div>
@@ -51,11 +53,18 @@ export default {
 			default: 'text',
 		},
 	},
+
 	data: () => ({
 		input_id: null,
+		input_value: '',
 	}),
 	mounted() {
 		this.input_id = this._uid
+	},
+	methods: {
+		handleInput() {
+			this.$emit('input', this.input_value)
+		},
 	},
 }
 </script>
