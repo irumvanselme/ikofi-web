@@ -1,6 +1,7 @@
 <template>
 	<div class="md:w-1/3">
 		<h1 class="text-3xl font-bold mb-12">Log into ikofi system</h1>
+		<Alert message="Invalid credentials" status="Success" />
 		<div class="mt-5">
 			<FormControl
 				v-model="data.login"
@@ -29,10 +30,11 @@
 import FormControl from '~/components/FormControl'
 import Button from '~/components/Button'
 import Link from '~/components/Link'
+import Alert from '~/components/Alert'
 
 export default {
 	name: 'Login',
-	components: { Link, Button, FormControl },
+	components: { Alert, Link, Button, FormControl },
 	data: () => ({
 		data: {
 			login: '',
