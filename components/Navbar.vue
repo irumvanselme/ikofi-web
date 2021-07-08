@@ -20,11 +20,7 @@
 				</div>
 				<div class="flex">
 					<div class="pr-5">
-						<Link
-							to="/account/summary"
-							text="Summary"
-							color="white"
-						/>
+						<Link to="/home" text="Summary" color="white" />
 					</div>
 					<div class="pr-5">
 						<Link to="/account/sent" text="Sent" color="white" />
