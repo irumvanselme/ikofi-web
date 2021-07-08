@@ -1,9 +1,9 @@
 <template>
-	<div>this is the home page</div>
+	<div>send the money here</div>
 </template>
 
 <script>
 export default {
-	name: 'Home',
+	name: 'Send',
 }
 </script>
