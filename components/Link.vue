@@ -1,10 +1,8 @@
 <template>
 	<div>
-		<div class="text-center">
-			<NuxtLink :to="to" class="text-purple-800 hover:underline">
-				{{ text }}
-			</NuxtLink>
-		</div>
+		<NuxtLink :to="to" :class="color + ' hover:underline'">
+			{{ text }}
+		</NuxtLink>
 	</div>
 </template>
 
@@ -19,6 +17,11 @@ export default {
 		text: {
 			type: String,
 			required: true,
+		},
+		color: {
+			type: String,
+			required: true,
+			default: 'text-purple-800',
 		},
 	},
 }
