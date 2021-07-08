@@ -1,5 +1,6 @@
 <template>
 	<div
+		v-if="message !== 'DoNot'"
 		:class="
 			'border-2 border-l-8 border-' +
 			getColor() +

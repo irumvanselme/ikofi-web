@@ -1,7 +1,7 @@
 <template>
 	<div class="md:w-1/3">
 		<h1 class="text-3xl font-bold mb-12">Log into ikofi system</h1>
-		<Alert message="Invalid credentials" status="Success" />
+		<Alert :message="alert.message" :status="alert.status" />
 		<div class="mt-5">
 			<FormControl
 				v-model="data.login"
@@ -40,6 +40,10 @@ export default {
 			login: '',
 			password: '',
 		},
+		alert: {
+			message: 'DoNot',
+			status: 'Success',
+		},
 	}),
 	methods: {
 		async logIn() {
@@ -48,9 +52,13 @@ export default {
 					'/api/auth/login',
 					this.data
 				)
-				console.log(response)
+				localStorage.setItem('token', response.token)
+				localStorage.setItem('user', JSON.stringify(response.user))
+				this.alert.message = 'Successfully looged in'
+				this.alert.status = 'Success'
 			} catch (e) {
-				console.log(e.response.data)
+				this.alert.message = e.response.data
+				this.alert.status = 'Failure'
 			}
 		},
 	},
