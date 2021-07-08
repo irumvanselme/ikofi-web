@@ -14,7 +14,10 @@
 				>
 					Send Money
 				</button>
-				<div class="mt-5">
+				<div
+					class="mt-5 py-4 pr-3 mr-3 overflow-y-auto transactions"
+					style="height: calc(100vh - 170px)"
+				>
 					<div class="text-xl font-bold text-gray-700 pb-3">
 						{{ title }}
 					</div>
@@ -30,6 +33,7 @@
 
 <script>
 import AccountDetails from '~/components/AccountDetails'
+
 export default {
 	name: 'Transactions',
 	components: { AccountDetails },
@@ -41,3 +45,19 @@ export default {
 	},
 }
 </script>
+<style scoped lang="scss">
+.transactions {
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: #eeeeee;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background-color: darkgrey;
+	}
+}
+</style>

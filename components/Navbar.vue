@@ -8,6 +8,7 @@
 			flex
 			justify-center
 			py-5
+			shadow
 		"
 	>
 		<div
