@@ -15,9 +15,9 @@
 			/>
 		</div>
 		<div class="mt-6">
-			<Button />
+			<Button title="Log in" />
 		</div>
-		<div>
+		<div class="mt-8">
 			<Link to="/auth/register" text="Don't have an account ?" />
 		</div>
 	</div>
@@ -27,6 +27,7 @@
 import FormControl from '~/components/FormControl'
 import Button from '~/components/Button'
 import Link from '~/components/Link'
+
 export default {
 	name: 'Login',
 	components: { Link, Button, FormControl },

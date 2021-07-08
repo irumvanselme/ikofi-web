@@ -14,13 +14,19 @@
 			active:bg-purple-700
 		"
 	>
-		Log in
+		{{ title }}
 	</button>
 </template>
 
 <script>
 export default {
 	name: 'Button',
+	props: {
+		title: {
+			type: String,
+			required: true,
+		},
+	},
 }
 </script>
 
