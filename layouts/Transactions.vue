@@ -21,15 +21,18 @@
 					<slot />
 				</div>
 			</div>
-			<div>IRUMVA HABUMUGISHA Anselme</div>
+			<div>
+				<AccountDetails />
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import AccountDetails from '~/components/AccountDetails'
 export default {
 	name: 'Transactions',
-	layout: 'Dashbaord',
+	components: { AccountDetails },
 	props: {
 		title: {
 			type: String,
