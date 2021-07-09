@@ -9,13 +9,13 @@
 		/>
 		<div class="pt-4 px-4 text-center">
 			<div class="text-lg pb-2 font-medium text-center">
-				IRUMVA HABUMUGISHA Anselme
+				{{ user.full_names }}
 			</div>
 			<div class="pb-2 text-gray-700 hover:underline cursor-pointer">
-				andesanselme@gmail.com
+				{{ user.email }}
 			</div>
-			<div>+250 783 384 212</div>
-			<div class="mt-2">Kirehe - Rwanda</div>
+			<div>{{ user.mobile }}</div>
+			<div class="mt-2">{{ user.profile.address }}</div>
 		</div>
 		<div
 			class="
@@ -28,7 +28,7 @@
 				rounded-lg
 			"
 		>
-			200, 000 Frw
+			{{ user.account.amount.toLocaleString() }} FRW
 		</div>
 	</div>
 </template>
@@ -36,8 +36,33 @@
 <script>
 export default {
 	name: 'AccountDetails',
+	data: () => ({
+		user: {
+			id: 1,
+			full_names: '',
+			email: '',
+			mobile: '',
+			username: '',
+			password: '',
+			role: '',
+			profile: {
+				id: 1,
+				address: '',
+				idCard: '',
+				title: '',
+				user: 1,
+			},
+			account: {
+				id: 1,
+				amount: 0,
+				status: '',
+				createdAt: '',
+				user: 1,
+			},
+		},
+	}),
 	created() {
-		console.log('I am the user', this.$auth.user)
+		this.user = this.$auth.user
 	},
 }
 </script>
