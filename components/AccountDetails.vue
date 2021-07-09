@@ -36,5 +36,8 @@
 <script>
 export default {
 	name: 'AccountDetails',
+	created() {
+		console.log('I am the user', this.$auth.user)
+	},
 }
 </script>

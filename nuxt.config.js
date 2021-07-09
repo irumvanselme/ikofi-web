@@ -53,8 +53,18 @@ export default {
 		strategies: {
 			local: {
 				schema: 'local',
+				token: {
+					property: 'token',
+					required: true,
+					type: 'Bearer',
+				},
+				user: {
+					property: false,
+					autoFetch: true,
+				},
 				endpoints: {
-					user: 'api/auth/login',
+					login: { url: 'api/auth/login', method: 'post' },
+					user: { url: 'api/auth/profile', method: 'get' },
 				},
 			},
 		},
