@@ -1,16 +1,8 @@
 <template>
 	<Transactions title="All transactions">
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
-		<Transaction />
+		<div v-for="(transaction, i) of transactions" :key="i">
+			<Transaction :transaction="transaction" />
+		</div>
 	</Transactions>
 </template>
 
@@ -21,5 +13,15 @@ export default {
 	name: 'Home',
 	components: { Transaction, Transactions },
 	layout: 'Dashboard',
+	async asyncData({ $axios }) {
+		const {
+			data: { data },
+		} = await $axios.get('/api/account/transactions')
+
+		return { transactions: data }
+	},
+	data: () => ({
+		transactions: [],
+	}),
 }
 </script>
