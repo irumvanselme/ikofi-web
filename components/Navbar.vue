@@ -32,6 +32,13 @@
 							color="white"
 						/>
 					</div>
+					<div class="pr-5">
+						<Link
+							to="/account/received"
+							text="Settings"
+							color="white"
+						/>
+					</div>
 				</div>
 			</div>
 			<div>
