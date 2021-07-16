@@ -49,7 +49,7 @@ export default {
 		async logIn() {
 			try {
 				await this.$auth.loginWith('local', { data: this.request })
-				this.alert.message = 'Successfully looged in'
+				this.alert.message = 'Successfully logged in'
 				this.alert.status = 'Success'
 			} catch (e) {
 				this.alert.message = e.response.data.data
