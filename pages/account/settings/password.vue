@@ -46,6 +46,7 @@ export default {
 	name: 'Password',
 	components: { Button, FormControl, SettingsLayout },
 	layout: 'Dashboard',
+	middleware: 'auth',
 	data: () => ({
 		request: {
 			current_password: '',

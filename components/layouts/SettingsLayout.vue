@@ -16,6 +16,7 @@ import Sidebar from '~/components/Sidebar'
 export default {
 	name: 'SettingsLayout',
 	components: { Sidebar },
+	middleware: 'auth',
 	props: {
 		title: {
 			type: String,
