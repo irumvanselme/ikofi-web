@@ -54,34 +54,33 @@ export default {
 	}),
 	methods: {
 		async sendMoney() {
-			const validations = {
-				account_number: 'required|string',
-				amount: 'required|numeric|required|min:10',
-				pin: 'required|string|min:5',
-			}
+			try {
+				const validations = {
+					account_number: 'required|string',
+					amount: 'required|numeric|required|min:10',
+					pin: 'required|string|digits:5',
+				}
 
-			const valid = new Validator(this.request, validations)
+				const valid = new Validator(this.request, validations)
 
-			if (valid.fails()) {
-				this.alert.message = getFirstError(
-					valid.errors.all(),
-					Object.keys(validations)
-				)
-				this.alert.status = 'Failure'
-			} else {
-				console.log('Passes')
-				await this.$axios.post('/api/money/send', valid.input)
+				if (valid.fails()) {
+					this.alert.message = getFirstError(
+						valid.errors.all(),
+						Object.keys(validations)
+					)
+					this.alert.status = 'Failure'
+				} else {
+					await this.$axios.post('/api/money/send', valid.input)
 
-				this.$axios.onError((e) => {
 					this.alert = {
-						message: e.response.data.data,
-						status: 'Failure',
+						message: 'Successfully sent the money',
+						status: 'Success',
 					}
-				})
-
+				}
+			} catch (e) {
 				this.alert = {
-					message: 'Successfully sent the money',
-					status: 'Success',
+					message: e.response.data.data,
+					status: 'Failure',
 				}
 			}
 		},
