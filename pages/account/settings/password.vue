@@ -24,11 +24,13 @@
 				class="mt-4"
 			/>
 
-			<Button
-				title="Change Password"
-				class="mt-12"
-				@click="updatePassword"
-			/>
+			<div class="w-1/2">
+				<Button
+					title="Change Password"
+					class="mt-12"
+					@click="updatePassword"
+				/>
+			</div>
 		</div>
 	</SettingsLayout>
 </template>
