@@ -28,7 +28,7 @@
 				rounded-lg
 			"
 		>
-			{{ user.account.amount.toLocaleString() }} FRW
+			{{ balance.toLocaleString() }} FRW
 		</div>
 	</div>
 </template>
@@ -50,19 +50,20 @@ export default {
 				address: '',
 				idCard: '',
 				title: '',
-				user: 1,
 			},
 			account: {
 				id: 1,
-				amount: 0,
-				status: '',
+				accountNumber: '12',
 				createdAt: '',
 				user: 1,
 			},
 		},
+		balance: 0,
 	}),
-	created() {
+	async created() {
 		this.user = this.$auth.user
+		const { data } = await this.$axios.get('api/account/balance')
+		this.balance = data.data
 	},
 }
 </script>

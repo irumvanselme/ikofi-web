@@ -25,8 +25,6 @@ export default {
 		user: {},
 	}),
 	created() {
-		console.log(this.transaction)
-
 		this.user = this.$auth.user
 	},
 }
