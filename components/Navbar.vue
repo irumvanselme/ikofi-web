@@ -34,7 +34,7 @@
 					</div>
 					<div class="pr-5">
 						<Link
-							to="/account/received"
+							to="/account/settings"
 							text="Settings"
 							color="white"
 						/>
