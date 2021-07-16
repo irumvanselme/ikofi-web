@@ -1,5 +1,5 @@
 <template>
-	<SettingsLayout>
+	<SettingsLayout title="Change your password">
 		<div>This is the change password page</div>
 	</SettingsLayout>
 </template>

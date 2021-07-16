@@ -1,5 +1,5 @@
 <template>
-	<SettingsLayout>
+	<SettingsLayout title="Edit personal information">
 		<div>Edit the personal infromation</div>
 	</SettingsLayout>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<SettingsLayout>
+	<SettingsLayout title="Account Information">
 		<div>I am the index settings page</div>
 	</SettingsLayout>
 </template>

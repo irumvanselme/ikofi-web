@@ -4,6 +4,7 @@
 			<Sidebar />
 		</div>
 		<div class="col-span-4">
+			<h1 class="text-xl font-bold mb-5">{{ title }}</h1>
 			<slot />
 		</div>
 	</div>
@@ -15,6 +16,12 @@ import Sidebar from '~/components/Sidebar'
 export default {
 	name: 'SettingsLayout',
 	components: { Sidebar },
+	props: {
+		title: {
+			type: String,
+			required: true,
+		},
+	},
 }
 </script>
 
