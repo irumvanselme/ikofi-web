@@ -68,6 +68,8 @@ import FormControl from '~/components/FormControl'
 import Link from '~/components/Link'
 import Button from '~/components/Button'
 
+import { getFirstError } from '~/utils/functions'
+
 export default {
 	name: 'Register',
 	components: { Button, FormControl, Link },
@@ -103,7 +105,7 @@ export default {
 			const valid = new Validator(this.request, validations)
 
 			if (valid.fails()) {
-				this.alert.message = this.getFirstError(
+				this.alert.message = getFirstError(
 					valid.errors.all(),
 					Object.keys(validations)
 				)
@@ -130,14 +132,6 @@ export default {
 					this.alert.status = 'Failure'
 				})
 			}
-		},
-
-		getFirstError(errors, keys) {
-			for (const key of keys) {
-				if (Object.keys(errors).includes(key) && errors[key].length > 0)
-					return errors[key][0]
-			}
-			return ''
 		},
 	},
 }

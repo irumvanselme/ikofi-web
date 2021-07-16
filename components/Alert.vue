@@ -4,7 +4,7 @@
 		:class="
 			'border-2 border-l-8 border-' +
 			getColor() +
-			'-500 bg-white shadow-lg px-4 py-2 mb-3'
+			'-500 bg-white shadow-lg px-4 py-2 mb-3 text-left'
 		"
 	>
 		<span :class="'text-' + getColor() + '-500 font-medium'">{{
