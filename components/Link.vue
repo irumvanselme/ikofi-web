@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<NuxtLink :to="to" :class="color + ' hover:underline'">
+		<NuxtLink
+			:to="to"
+			:class="color + ' hover:underline pb-1'"
+			active-class="border-b"
+		>
 			{{ text }}
 		</NuxtLink>
 	</div>
