@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Activities from '~/layouts/Activities'
+import Activities from '~/components/layouts/Activities'
 import Activity from '~/components/Activity'
 
 export default {

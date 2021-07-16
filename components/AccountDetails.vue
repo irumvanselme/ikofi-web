@@ -2,20 +2,37 @@
 	<div class="p-4 pt-7 rounded border shadow-lg">
 		<img
 			alt="Image"
-			class="rounded-full p-2 border-2 border-purple-900 mx-auto"
+			class="rounded-full p-2 border-2 border-purple-900 mx-5"
 			height="110"
 			src="/profile.jpeg"
 			width="110"
 		/>
-		<div class="pt-4 px-4 text-center">
-			<div class="text-lg pb-2 font-medium text-center">
-				{{ user.full_names }}
+		<div class="pt-4 px-5">
+			<div class="text-lg pb-2 font-medium">
+				<span class="text-gray-700">Names:</span> {{ user.full_names }}
+			</div>
+			<div class="text-lg pb-2">
+				<span class="text-gray-700">Username:</span> {{ user.username }}
 			</div>
 			<div class="pb-2 text-gray-700 hover:underline cursor-pointer">
-				{{ user.email }}
+				<span class="text-gray-700">Email:</span> {{ user.email }}
 			</div>
-			<div>{{ user.mobile }}</div>
-			<div class="mt-2">{{ user.profile.address }}</div>
+			<div>
+				<span class="text-gray-700">Mobile:</span>
+				{{ user.mobile }}
+			</div>
+			<div class="mt-2">
+				<span class="text-gray-700">Address</span>
+				{{ user.profile.address }}
+			</div>
+			<div class="mt-2">
+				<span class="text-gray-700">ID Card</span>
+				{{ user.profile.id_card }}
+			</div>
+			<div class="mt-2">
+				<span class="text-gray-700">Account number: </span>
+				{{ user.account.accountNumber }}
+			</div>
 		</div>
 		<div
 			class="
@@ -43,12 +60,10 @@ export default {
 			email: '',
 			mobile: '',
 			username: '',
-			password: '',
-			role: '',
 			profile: {
 				id: 1,
 				address: '',
-				idCard: '',
+				id_card: '',
 				title: '',
 			},
 			account: {
@@ -65,5 +80,6 @@ export default {
 		const { data } = await this.$axios.get('api/account/balance')
 		this.balance = data.data
 	},
+	methods: {},
 }
 </script>

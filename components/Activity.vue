@@ -8,11 +8,15 @@
 				activity.transaction.receiver.accountNumber
 			}}</span>
 		</div>
-		<div class="text-sm text-gray-400">2 days ago</div>
+		<div class="text-sm text-gray-400">
+			{{ formatDate(activity.transaction.done_at) }}
+		</div>
 	</div>
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
 	name: 'Transaction',
 	props: {
@@ -26,6 +30,11 @@ export default {
 	}),
 	created() {
 		this.user = this.$auth.user
+	},
+	methods: {
+		formatDate(date) {
+			return moment(date).fromNow()
+		},
 	},
 }
 </script>
