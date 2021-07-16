@@ -1,11 +1,11 @@
 <template>
 	<div class="mt-5 p-3 px-5 border rounded shadow flex justify-between">
 		<div>
-			Received
+			{{ transaction.action === 'SEND_MONEY' ? 'Send' : 'Received' }}
 			<span class="font-medium">{{ transaction.amount }}</span>
 			from
 			<span class="font-medium">{{
-				transaction[getPartner()].user.full_names
+				transaction.transaction.receiver.accountNumber
 			}}</span>
 		</div>
 		<div class="text-sm text-gray-400">2 days ago</div>
@@ -25,18 +25,9 @@ export default {
 		user: {},
 	}),
 	created() {
-		this.user = this.$auth.user
-	},
-	methods: {
-		getMe() {
-			if (this.user.id === this.transaction.sender.id) return 'sender'
-			if (this.user.id === this.transaction.sender.id) return 'receiver'
-		},
+		console.log(this.transaction)
 
-		getPartner() {
-			if (this.user.id === this.transaction.sender.id) return 'receiver'
-			if (this.user.id === this.transaction.sender.id) return 'sender'
-		},
+		this.user = this.$auth.user
 	},
 }
 </script>

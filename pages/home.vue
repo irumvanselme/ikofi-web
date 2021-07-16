@@ -9,6 +9,7 @@
 <script>
 import Transactions from '~/layouts/Transactions'
 import Transaction from '~/components/Transaction'
+
 export default {
 	name: 'Home',
 	components: { Transaction, Transactions },
@@ -16,7 +17,7 @@ export default {
 	async asyncData({ $axios }) {
 		const {
 			data: { data },
-		} = await $axios.get('/api/account/transactions')
+		} = await $axios.get('/api/activities')
 
 		return { transactions: data }
 	},

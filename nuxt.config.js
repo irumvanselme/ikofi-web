@@ -49,12 +49,15 @@ export default {
 	auth: {
 		redirect: {
 			login: '/auth/login',
+			home: '/home',
+			logout: '/',
 		},
+		watchLoggedIn: true,
 		strategies: {
 			local: {
 				schema: 'local',
 				token: {
-					property: 'token',
+					property: 'data.token',
 					required: true,
 					type: 'Bearer',
 				},
