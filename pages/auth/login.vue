@@ -47,13 +47,14 @@ export default {
 	}),
 	methods: {
 		async logIn() {
-			await this.$auth.loginWith('local', { data: this.request })
-			this.alert.message = 'Successfully looged in'
-			this.alert.status = 'Success'
-			this.$auth.onError((e) => {
-				this.alert.message = e.response.data
+			try {
+				await this.$auth.loginWith('local', { data: this.request })
+				this.alert.message = 'Successfully looged in'
+				this.alert.status = 'Success'
+			} catch (e) {
+				this.alert.message = e.response.data.data
 				this.alert.status = 'Failure'
-			})
+			}
 		},
 	},
 }

@@ -52,6 +52,7 @@
 						py-1
 						transition
 					"
+					@click="$auth.logout()"
 				>
 					LOG OUT
 				</button>

@@ -52,7 +52,6 @@ export default {
 			home: '/home',
 			logout: '/',
 		},
-		watchLoggedIn: true,
 		strategies: {
 			local: {
 				schema: 'local',
