@@ -20,6 +20,7 @@
 import SettingsLayout from '~/components/layouts/SettingsLayout'
 import FormControl from '~/components/FormControl'
 import Button from '~/components/Button'
+
 export default {
 	name: 'Index',
 	components: { Button, FormControl, SettingsLayout },
