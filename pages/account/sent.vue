@@ -1,23 +1,23 @@
 <template>
-	<Transactions title="You sent">
+	<Activities title="You sent">
 		<div v-for="(transaction, i) of transactions" :key="i">
-			<Transaction :transaction="transaction" />
+			<Activity :activity="transaction" />
 		</div>
-	</Transactions>
+	</Activities>
 </template>
 
 <script>
-import Transactions from '~/layouts/Transactions'
-import Transaction from '~/components/Transaction'
+import Activities from '~/layouts/Activities'
+import Activity from '~/components/Activity'
 
 export default {
 	name: 'Sent',
-	components: { Transaction, Transactions },
+	components: { Activity, Activities },
 	layout: 'Dashboard',
 	async asyncData({ $axios }) {
 		const {
 			data: { data },
-		} = await $axios.get('/api/account/transactions/sent')
+		} = await $axios.get('/api/activities/SEND_MONEY')
 
 		return { transactions: data }
 	},
