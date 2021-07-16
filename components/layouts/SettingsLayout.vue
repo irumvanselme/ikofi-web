@@ -1,9 +1,9 @@
 <template>
-	<div class="grid grid-cols-5 gap-5 mt-12">
+	<div class="grid grid-cols-4 gap-10 mt-12">
 		<div class="col-span-1">
 			<Sidebar />
 		</div>
-		<div class="col-span-4">
+		<div class="col-span-3">
 			<h1 class="text-xl font-bold mb-5">{{ title }}</h1>
 			<slot />
 		</div>

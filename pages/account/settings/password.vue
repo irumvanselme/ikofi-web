@@ -6,21 +6,21 @@
 				v-model="request.current_password"
 				type="password"
 				label="Current Password"
-				placeholder=""
+				placeholder="Current password"
 				class="mt-4"
 			/>
 			<FormControl
 				v-model="request.new_password"
 				type="password"
 				label="New Password"
-				placeholder=""
+				placeholder="New Password"
 				class="mt-4"
 			/>
 			<FormControl
 				v-model="request.new_password_confirmation"
 				type="password"
 				label="Confirm Password"
-				placeholder=""
+				placeholder="Confirm password"
 				class="mt-4"
 			/>
 
