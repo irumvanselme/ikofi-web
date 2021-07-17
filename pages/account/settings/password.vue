@@ -41,12 +41,13 @@ import Validator from 'validatorjs'
 import SettingsLayout from '~/components/layouts/SettingsLayout'
 import FormControl from '~/components/FormControl'
 import Button from '~/components/Button'
+import Alert from '~/components/Alert'
 
 import { getFirstError } from '~/utils/functions'
 
 export default {
 	name: 'Password',
-	components: { Button, FormControl, SettingsLayout },
+	components: { Alert, Button, FormControl, SettingsLayout },
 	layout: 'Dashboard',
 	middleware: 'auth',
 	data: () => ({
@@ -60,6 +61,7 @@ export default {
 			status: 'Success',
 		},
 	}),
+
 	methods: {
 		async updatePassword() {
 			const validations = {
@@ -67,23 +69,30 @@ export default {
 				new_password: 'required|string|min:8|confirmed',
 			}
 
-			const valid = new Validator(this.request, validations)
+			try {
+				const valid = new Validator(this.request, validations)
 
-			if (valid.fails(undefined)) {
-				this.alert.message = getFirstError(
-					valid.errors.all(),
-					Object.keys(validations)
-				)
-				this.alert.status = 'Failure'
-			} else {
-				await this.$axios.put(
-					'/api/account/change-password',
-					this.request
-				)
+				if (valid.fails(undefined)) {
+					this.alert.message = getFirstError(
+						valid.errors.all(),
+						Object.keys(validations)
+					)
+					this.alert.status = 'Failure'
+				} else {
+					await this.$axios.put(
+						'/api/settings/change-password',
+						this.request
+					)
 
+					this.alert = {
+						message: 'Successfully Changed Password',
+						status: 'Success',
+					}
+				}
+			} catch (e) {
 				this.alert = {
-					message: 'Successfully Changed Password',
-					status: 'Success',
+					message: e.response.data.message,
+					status: 'Failure',
 				}
 			}
 		},

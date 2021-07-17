@@ -55,10 +55,13 @@ import Validator from 'validatorjs'
 import SettingsLayout from '~/components/layouts/SettingsLayout'
 
 import { getFirstError } from '~/utils/functions'
+import FormControl from '~/components/FormControl'
+import Alert from '~/components/Alert'
 export default {
-	name: 'personal',
-	components: { SettingsLayout },
+	name: 'Personal',
+	components: { Alert, FormControl, SettingsLayout },
 	layout: 'Dashboard',
+	middleware: 'auth',
 	data: () => ({
 		request: {
 			full_name: '',
@@ -88,14 +91,14 @@ export default {
 			}
 			const valid = new Validator(this.request, validations)
 
-			if (valid.fails()) {
+			if (valid.fails(undefined)) {
 				this.alert.message = getFirstError(
 					valid.errors.all(),
 					Object.keys(validations)
 				)
 				this.alert.status = 'Failure'
 			} else {
-				await this.$axios.post('/api/auth/register', this.request)
+				await this.$axios.post('/api/settings/profile', this.request)
 
 				this.alert = {
 					message: 'Successfully created your account',
