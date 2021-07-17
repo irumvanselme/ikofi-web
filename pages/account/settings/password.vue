@@ -81,7 +81,7 @@ export default {
 				} else {
 					await this.$axios.put(
 						'/api/settings/change-password',
-						this.request
+						valid.input
 					)
 
 					this.alert = {

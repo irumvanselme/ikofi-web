@@ -61,8 +61,8 @@ export default {
 		async changePIN() {
 			try {
 				const validations = {
-					current_pin: 'required|string|min:8',
-					new_pin: 'required|string|min:8|confirmed',
+					current_pin: 'required|string',
+					new_pin: 'required|string|digits:5|confirmed',
 				}
 
 				const valid = new Validator(this.request, validations)
@@ -75,12 +75,12 @@ export default {
 					this.alert.status = 'Failure'
 				} else {
 					await this.$axios.put(
-						'/api/settings/change-password',
-						this.request
+						'/api/settings/change-pin',
+						valid.input
 					)
 
 					this.alert = {
-						message: 'Successfully Changed Password',
+						message: 'Successfully Changed PIN',
 						status: 'Success',
 					}
 				}
