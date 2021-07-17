@@ -34,7 +34,7 @@
 			/>
 			<FormControl
 				v-model="request.mobile"
-				placeholder="Telphone"
+				placeholder="Telephone"
 				label="Telephone *"
 			/>
 		</div>
@@ -126,7 +126,7 @@ export default {
 					},
 				})
 
-				this.alert.message = 'Successfully looged in'
+				this.alert.message = 'Successfully logged in'
 				this.alert.status = 'Success'
 				this.$auth.onError((e) => {
 					this.alert.message = e.response.data
