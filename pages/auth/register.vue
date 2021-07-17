@@ -1,6 +1,8 @@
 <template>
-	<div class="w-2/5">
-		<h1 class="text-3xl font-bold mb-12">Register into ikofi system</h1>
+	<div class="w-1/3">
+		<h1 class="text-3xl font-bold mb-12">
+			Register into <LogoText /> system
+		</h1>
 		<Alert :message="alert.message" :status="alert.status" />
 		<FormControl
 			v-model="request.full_name"
@@ -8,36 +10,24 @@
 			label="Full names *"
 			class="mt-4"
 		/>
-		<div class="mt-5 grid grid-cols-2 gap-3">
-			<FormControl
-				v-model="request.email"
-				placeholder="Email"
-				label="Email *"
-			/>
-			<FormControl
-				v-model="request.username"
-				placeholder="Username"
-				label="Username *"
-			/>
-		</div>
 		<FormControl
-			v-model="request.id_card"
-			placeholder="ID card"
-			label="ID card"
-			class="mt-"
+			v-model="request.email"
+			placeholder="Email"
+			label="Email *"
+			class="mt-4"
 		/>
-		<div class="mt-4 grid grid-cols-2 gap-3">
-			<FormControl
-				v-model="request.address"
-				placeholder="Address"
-				label="Address *"
-			/>
-			<FormControl
-				v-model="request.mobile"
-				placeholder="Telephone"
-				label="Telephone *"
-			/>
-		</div>
+		<FormControl
+			v-model="request.username"
+			placeholder="Username"
+			label="Username *"
+			class="mt-4"
+		/>
+		<FormControl
+			v-model="request.mobile"
+			placeholder="Telephone"
+			label="Telephone *"
+			class="mt-4"
+		/>
 		<div class="mt-4 grid grid-cols-2 gap-3">
 			<FormControl
 				v-model="request.password"
@@ -70,10 +60,11 @@ import Button from '~/components/Button'
 
 import { getFirstError } from '~/utils/functions'
 import Alert from '~/components/Alert'
+import LogoText from '~/components/logo/LogoText'
 
 export default {
 	name: 'Register',
-	components: { Alert, Button, FormControl, Link },
+	components: { LogoText, Alert, Button, FormControl, Link },
 	layout: 'AuthPage',
 	data: () => ({
 		request: {
@@ -83,8 +74,6 @@ export default {
 			mobile: '',
 			password: '',
 			password_confirmation: '',
-			id_card: '',
-			address: '',
 			pin: '12345',
 		},
 		alert: {
@@ -98,11 +87,9 @@ export default {
 				full_name: 'required|string|min:3',
 				email: 'required|email',
 				username: 'required|string|min:3',
-				mobile: 'required|numeric|min:8',
+				mobile: 'required|string|min:8',
 				password_confirmation: 'required|string',
 				password: 'required|string|min:8|confirmed',
-				id_card: 'string|digits:16',
-				address: 'required|string|min:4',
 			}
 			const valid = new Validator(this.request, validations)
 

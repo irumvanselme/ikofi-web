@@ -1,6 +1,6 @@
 <template>
 	<div class="md:w-1/3">
-		<h1 class="text-3xl font-bold mb-12">Log into ikofi system</h1>
+		<h1 class="text-3xl font-bold mb-12">Log into <LogoText /> system</h1>
 		<Alert :message="alert.message" :status="alert.status" />
 		<div class="mt-5">
 			<FormControl
@@ -31,10 +31,11 @@ import FormControl from '~/components/FormControl'
 import Button from '~/components/Button'
 import Link from '~/components/Link'
 import Alert from '~/components/Alert'
+import LogoText from '~/components/logo/LogoText'
 
 export default {
 	name: 'Login',
-	components: { Alert, Link, Button, FormControl },
+	components: { LogoText, Alert, Link, Button, FormControl },
 	layout: 'AuthPage',
 	data: () => ({
 		request: {
