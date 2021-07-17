@@ -131,6 +131,8 @@ export default {
 					this.alert.message = e.response.data
 					this.alert.status = 'Failure'
 				})
+
+				await this.$router.push('/home')
 			}
 		},
 	},
