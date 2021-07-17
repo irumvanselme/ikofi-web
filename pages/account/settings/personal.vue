@@ -7,6 +7,7 @@
 				placeholder="Full names"
 				label="Full names *"
 				class="mt-4"
+				:default-value="user.full_names"
 			/>
 
 			<FormControl
@@ -14,12 +15,14 @@
 				placeholder="Email"
 				label="Email *"
 				class="mt-4"
+				:default-value="user.email"
 			/>
 			<FormControl
 				v-model="request.username"
 				placeholder="Username"
 				label="Username *"
 				class="mt-4"
+				:default-value="user.username"
 			/>
 
 			<FormControl
@@ -27,6 +30,7 @@
 				placeholder="ID card"
 				label="ID card"
 				class="mt-4"
+				:default-value="user.profile.id_card"
 			/>
 
 			<FormControl
@@ -34,12 +38,14 @@
 				placeholder="Address"
 				label="Address *"
 				class="mt-4"
+				:default-value="user.profile.address"
 			/>
 			<FormControl
 				v-model="request.mobile"
 				placeholder="Telphone"
 				label="Telephone *"
 				class="mt-4"
+				:default-value="user.mobile"
 			/>
 		</div>
 
@@ -53,10 +59,11 @@
 import Validator from 'validatorjs'
 
 import SettingsLayout from '~/components/layouts/SettingsLayout'
-
-import { getFirstError } from '~/utils/functions'
 import FormControl from '~/components/FormControl'
 import Alert from '~/components/Alert'
+
+import { getFirstError, mapMyUserToRequest } from '~/utils/functions'
+
 export default {
 	name: 'Personal',
 	components: { Alert, FormControl, SettingsLayout },
@@ -68,17 +75,19 @@ export default {
 			email: '',
 			username: '',
 			mobile: '',
-			password: '',
-			password_confirmation: '',
 			id_card: '',
 			address: '',
-			pin: '12345',
 		},
 		alert: {
 			message: 'DoNot',
 			status: 'Success',
 		},
+		user: {},
 	}),
+	created() {
+		this.user = this.$auth.user
+		this.request = mapMyUserToRequest(this.$auth.user)
+	},
 	methods: {
 		async register() {
 			const validations = {
@@ -98,10 +107,10 @@ export default {
 				)
 				this.alert.status = 'Failure'
 			} else {
-				await this.$axios.post('/api/settings/profile', this.request)
+				await this.$axios.put('/api/settings/profile', this.request)
 
 				this.alert = {
-					message: 'Successfully created your account',
+					message: 'Successfully Updated your account',
 					status: 'Success',
 				}
 			}

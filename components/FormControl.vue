@@ -23,6 +23,7 @@
 				:id="input_id"
 				v-model="input_value"
 				:type="type"
+				:value="defaultValue"
 				class="
 					flex-grow
 					bg-transparent
@@ -52,6 +53,10 @@ export default {
 			type: String,
 			default: 'text',
 		},
+		defaultValue: {
+			type: String,
+			default: '',
+		},
 	},
 
 	data: () => ({
@@ -60,6 +65,9 @@ export default {
 	}),
 	mounted() {
 		this.input_id = this._uid
+	},
+	created() {
+		this.input_value = this.defaultValue
 	},
 	methods: {
 		handleInput() {
