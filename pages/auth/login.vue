@@ -35,6 +35,7 @@ import Alert from '~/components/Alert'
 export default {
 	name: 'Login',
 	components: { Alert, Link, Button, FormControl },
+	layout: 'AuthPage',
 	data: () => ({
 		request: {
 			login: '',

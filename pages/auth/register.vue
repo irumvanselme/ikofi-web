@@ -74,6 +74,7 @@ import Alert from '~/components/Alert'
 export default {
 	name: 'Register',
 	components: { Alert, Button, FormControl, Link },
+	layout: 'AuthPage',
 	data: () => ({
 		request: {
 			full_name: '',
