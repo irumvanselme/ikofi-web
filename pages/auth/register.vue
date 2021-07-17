@@ -69,10 +69,11 @@ import Link from '~/components/Link'
 import Button from '~/components/Button'
 
 import { getFirstError } from '~/utils/functions'
+import Alert from '~/components/Alert'
 
 export default {
 	name: 'Register',
-	components: { Button, FormControl, Link },
+	components: { Alert, Button, FormControl, Link },
 	data: () => ({
 		request: {
 			full_name: '',
@@ -104,7 +105,7 @@ export default {
 			}
 			const valid = new Validator(this.request, validations)
 
-			if (valid.fails()) {
+			if (valid.fails(undefined)) {
 				this.alert.message = getFirstError(
 					valid.errors.all(),
 					Object.keys(validations)
