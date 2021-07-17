@@ -7,13 +7,38 @@
 			>
 				<LogoText />
 			</h1>
-			<div>Links</div>
+			<div class="flex">
+				<Link
+					to="/about-us"
+					text="About us"
+					color="white"
+					class="px-4"
+				/>
+				<Link
+					to="/about-us"
+					text="Services"
+					color="white"
+					class="px-4"
+				/>
+				<Link
+					to="/about-us"
+					text="Pricing"
+					color="white"
+					class="px-4"
+				/>
+				<Link
+					to="/about-us"
+					text="Contact us"
+					color="white"
+					class="px-4"
+				/>
+			</div>
 			<div>
 				<NuxtLink
 					to="/auth/login"
 					class="
 						py-3
-						px-8
+						px-4
 						mr-1
 						rounded-l-full rounded-r-full
 						hover:bg-white hover:bg-opacity-10
@@ -27,6 +52,20 @@
 					to="/auth/register"
 					class="
 						py-3
+						px-4
+						mr-1
+						rounded-l-full rounded-r-full
+						hover:bg-white hover:bg-opacity-10
+						font-medium
+						text-lg
+					"
+				>
+					Register
+				</NuxtLink>
+				<NuxtLink
+					to="/download"
+					class="
+						py-3
 						px-8
 						rounded-l-full rounded-r-full
 						text-lg
@@ -35,7 +74,7 @@
 						bg-pink-500
 					"
 				>
-					Register
+					Download app
 				</NuxtLink>
 			</div>
 		</div>
@@ -44,9 +83,10 @@
 
 <script>
 import LogoText from '~/components/logo/LogoText'
+import Link from '~/components/Link'
 export default {
 	name: 'Header',
-	components: { LogoText },
+	components: { Link, LogoText },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink to="/"> ikofi </NuxtLink>
+	<NuxtLink to="/"> IKOFI </NuxtLink>
 </template>
 
 <script>
