@@ -51,6 +51,10 @@ export default {
 				await this.$auth.loginWith('local', { data: this.request })
 				this.alert.message = 'Successfully logged in'
 				this.alert.status = 'Success'
+
+				setTimeout(() => {
+					this.$router.push('/home')
+				}, 1000)
 			} catch (e) {
 				this.alert.message = e.response.data.data
 				this.alert.status = 'Failure'

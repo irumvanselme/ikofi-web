@@ -52,7 +52,7 @@
 						py-1
 						transition
 					"
-					@click="$auth.logout()"
+					@click="logOut"
 				>
 					LOG OUT
 				</button>
@@ -66,5 +66,11 @@ import Link from '~/components/Link'
 export default {
 	name: 'Navbar',
 	components: { Link },
+	methods: {
+		logOut() {
+			this.$auth.logout()
+			this.$router.push('/auth/login')
+		},
+	},
 }
 </script>
